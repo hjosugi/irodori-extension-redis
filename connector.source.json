@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "extensionId": "irodori.redis",
+  "visibility": "public",
+  "version": "0.1.0",
+  "connector": {
+    "id": "redis.connector",
+    "engine": "redis",
+    "label": "Redis",
+    "aliases": [
+      "redis",
+      "Redis"
+    ],
+    "defaultPort": 6379,
+    "wire": "redis",
+    "module": "redis.driver",
+    "features": [
+      "metadata",
+      "streaming"
+    ]
+  },
+  "connection": {
+    "endpoint": {
+      "modes": [
+        "hostPort",
+        "connectionString"
+      ],
+      "defaultPort": 6379,
+      "fields": [
+        {
+          "id": "host",
+          "label": "Host",
+          "type": "string",
+          "profileField": "host",
+          "required": true
+        },
+        {
+          "id": "port",
+          "label": "Port",
+          "type": "number",
+          "profileField": "port",
+          "default": 6379
+        },
+        {
+          "id": "database",
+          "label": "Database index",
+          "type": "string",
+          "profileField": "database"
+        }
+      ]
+    },
+    "authMethods": [
+      "none",
+      "connectionString",
+      "aclUserPassword",
+      "redisToken",
+      "clientCertificate",
+      "customDriverOptions"
+    ],
+    "tls": "optional",
+    "transports": "default",
+    "optionNamespaces": [
+      "redis"
+    ],
+    "customDriverOptions": true
+  },
+  "runtime": {
+    "driverLinked": false
+  },
+  "source": {
+    "knowledgeEngineStatus": "wired",
+    "adapter": "db/redis.rs"
+  }
+}
