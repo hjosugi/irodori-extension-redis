@@ -6,8 +6,10 @@ Source SHA-256: `cbc06f16d4107ad97f39a7e150df4d16d09608cc2dc90720e40d465a69b1d3f
 
 
 This directory is a migration staging area for `irodori.redis`. The active native
-ABI shim lives in `src/lib.rs`; engine-specific connect/query/metadata behavior
-should move here as the connector runtime contract is wired into the desktop app.
+entrypoints live in `src/lib.rs`, shared ABI helpers live in `src/abi.rs`, and
+engine behavior lives in `src/stub.rs` or `src/driver.rs`. Engine-specific
+connect/query/metadata code should move from these snapshots into that behavior
+module as the connector runtime contract is wired into the desktop app.
 
 ## Migration Snapshots
 
