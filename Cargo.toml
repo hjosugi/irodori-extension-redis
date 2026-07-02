@@ -23,6 +23,7 @@ name = "irodori_extension_redis"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+redis = { version = "0.32", features = ["tls-rustls-webpki-roots"] }
 serde_json = "1"
 
 [profile.dev.package."*"]
